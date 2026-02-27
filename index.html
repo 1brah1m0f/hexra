@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html lang="en">
 <head>
   <link rel="icon" href="/hexra.png" type="/hexra.png">
@@ -289,5 +290,1018 @@
   <!-- Scripts (order matters: tilt first, then main) -->
   <script src="js/tilt.js"></script>
   <script src="js/main.js"></script>
+=======
+<html lang="az">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HEXRA — Building Tomorrow's Startups</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ── RESET & TOKENS ─────────────────────────────── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --cyan:        #00C8FF;
+      --cyan-dark:   #0099CC;
+      --cyan-glow:   rgba(0,200,255,.35);
+      --purple:      #8B5CF6;
+      --bg:          #07090F;
+      --bg2:         #0D1220;
+      --border:      rgba(0,200,255,.13);
+      --border-h:    rgba(0,200,255,.50);
+      --text:        #E8F4FF;
+      --muted:       #7A90B0;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Space Grotesk', sans-serif;
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    /* ── CURSOR ─────────────────────────────────────── */
+    #cur {
+      position: fixed; pointer-events: none; z-index: 9999;
+      width: 10px; height: 10px; background: var(--cyan);
+      transform: translate(-50%,-50%);
+      transition: transform .1s;
+    }
+    #cur-ring {
+      position: fixed; pointer-events: none; z-index: 9998;
+      width: 38px; height: 38px;
+      border: 1.5px solid var(--cyan);
+      transform: translate(-50%,-50%);
+      opacity: .45;
+      transition: width .3s, height .3s, opacity .3s;
+    }
+
+    /* ── PROGRESS BAR ───────────────────────────────── */
+    #progress {
+      position: fixed; top: 0; left: 0; height: 2px; z-index: 1001;
+      background: linear-gradient(90deg, var(--cyan), var(--purple));
+      transition: width .1s linear;
+    }
+
+    /* ── NAV ────────────────────────────────────────── */
+    nav {
+      position: fixed; inset: 0 0 auto 0; z-index: 1000;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 60px;
+      background: rgba(7,9,15,.75);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo img { height: 38px; display: block; }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 500;
+      letter-spacing: .04em; transition: color .25s; position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -3px; left: 0;
+      width: 0; height: 2px; background: var(--cyan); transition: width .25s;
+    }
+    .nav-links a:hover { color: var(--cyan); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-btn {
+      background: transparent; border: 1px solid var(--cyan);
+      color: var(--cyan); padding: 9px 22px; cursor: none;
+      font-family: 'Space Grotesk', sans-serif; font-size: 12px;
+      font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+      transition: background .25s, box-shadow .25s;
+    }
+    .nav-btn:hover { background: var(--cyan); color: var(--bg); box-shadow: 0 0 18px var(--cyan-glow); }
+
+    /* ── HERO ───────────────────────────────────────── */
+    #hero {
+      position: relative; height: 100vh;
+      display: flex; align-items: center; justify-content: center; overflow: hidden;
+    }
+    #hero-canvas { position: absolute; inset: 0; z-index: 0; }
+    .hero-inner {
+      position: relative; z-index: 1; text-align: center;
+      max-width: 860px; padding: 0 24px;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(0,200,255,.09); border: 1px solid var(--border);
+      padding: 7px 18px; font-size: 10px; color: var(--cyan);
+      letter-spacing: .18em; text-transform: uppercase; margin-bottom: 28px;
+    }
+    .hero-badge span {
+      width: 6px; height: 6px; background: var(--cyan);
+      border-radius: 50%; animation: blink 2s infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+    .hero-title {
+      font-family: 'Press Start 2P', monospace;
+      font-size: clamp(44px, 10vw, 96px);
+      color: var(--cyan); line-height: 1;
+      text-shadow: 0 0 40px rgba(0,200,255,.5), 0 0 90px rgba(0,200,255,.2);
+      margin-bottom: 24px; position: relative;
+    }
+    /* glitch */
+    .hero-title::before, .hero-title::after {
+      content: attr(data-text); position: absolute; top: 0; left: 0; width: 100%;
+    }
+    .hero-title::before {
+      color: #FF00FF; clip-path: polygon(0 0,100% 0,100% 33%,0 33%);
+      animation: g1 5s infinite;
+    }
+    .hero-title::after {
+      color: #00FFFF; clip-path: polygon(0 67%,100% 67%,100% 100%,0 100%);
+      animation: g2 5s infinite;
+    }
+    @keyframes g1 { 0%,88%,100%{transform:none;opacity:0} 90%{transform:translate(-3px,-2px);opacity:.75} 93%{transform:translate(3px,2px);opacity:.75} }
+    @keyframes g2 { 0%,88%,100%{transform:none;opacity:0} 91%{transform:translate(3px,2px);opacity:.75} 94%{transform:translate(-2px,-1px);opacity:.75} }
+
+    .hero-sub {
+      font-size: clamp(14px,2.2vw,20px); color: var(--muted);
+      max-width: 580px; margin: 0 auto 36px; line-height: 1.75; font-weight: 300;
+    }
+    .hero-sub em { color: var(--text); font-style: normal; font-weight: 500; }
+    .hero-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-p {
+      background: var(--cyan); color: var(--bg);
+      padding: 14px 36px; font-family: 'Space Grotesk',sans-serif;
+      font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      border: none; cursor: none; text-decoration: none; display: inline-block;
+      transition: transform .25s, box-shadow .25s;
+    }
+    .btn-p:hover { transform: translateY(-3px); box-shadow: 0 12px 36px var(--cyan-glow); }
+    .btn-o {
+      background: transparent; color: var(--text);
+      padding: 14px 36px; font-family: 'Space Grotesk',sans-serif;
+      font-size: 13px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+      border: 1px solid rgba(255,255,255,.18); cursor: none; text-decoration: none;
+      display: inline-block; transition: border-color .25s, color .25s, transform .25s;
+    }
+    .btn-o:hover { border-color: var(--cyan); color: var(--cyan); transform: translateY(-3px); }
+
+    .hero-scroll {
+      position: absolute; bottom: 36px; left: 50%;
+      transform: translateX(-50%); z-index: 1;
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted);
+    }
+    .hero-scroll-line {
+      width: 1px; height: 56px;
+      background: linear-gradient(to bottom, var(--cyan), transparent);
+      animation: sline 2.2s ease infinite;
+    }
+    @keyframes sline { 0%{transform:scaleY(0);transform-origin:top} 50%{transform:scaleY(1);transform-origin:top} 50.01%{transform-origin:bottom} 100%{transform:scaleY(0);transform-origin:bottom} }
+
+    /* ── MARQUEE ────────────────────────────────────── */
+    .marquee-wrap {
+      overflow: hidden; background: var(--bg2); padding: 14px 0;
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    }
+    .marquee-track {
+      display: flex; animation: marquee 22s linear infinite; width: max-content;
+    }
+    @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+    .marquee-item {
+      display: flex; align-items: center; gap: 18px;
+      padding: 0 36px; white-space: nowrap;
+      font-family: 'Press Start 2P', monospace; font-size: 10px; color: var(--muted);
+    }
+    .marquee-dot { width: 5px; height: 5px; background: var(--cyan); flex-shrink: 0; }
+
+    /* ── STATS STRIP ────────────────────────────────── */
+    .stats-strip {
+      display: grid; grid-template-columns: repeat(4,1fr);
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border);
+      background-image: linear-gradient(rgba(0,200,255,.025) 1px,transparent 1px),
+                        linear-gradient(90deg,rgba(0,200,255,.025) 1px,transparent 1px);
+      background-size: 40px 40px;
+    }
+    .stat {
+      text-align: center; padding: 44px 20px;
+      border-right: 1px solid var(--border);
+    }
+    .stat:last-child { border-right: none; }
+    .stat-n {
+      font-family: 'Press Start 2P', monospace;
+      font-size: clamp(22px,3vw,38px); color: var(--cyan); margin-bottom: 10px;
+    }
+    .stat-l { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; }
+
+    /* ── SECTIONS BASE ──────────────────────────────── */
+    .sec { padding: 120px 60px; }
+    .sec-hd { text-align: center; margin-bottom: 72px; }
+    .sec-tag {
+      display: inline-block; font-size: 10px;
+      font-family: 'Press Start 2P', monospace;
+      color: var(--cyan); letter-spacing: .2em; text-transform: uppercase; margin-bottom: 14px;
+    }
+    .sec-title {
+      font-family: 'Press Start 2P', monospace;
+      font-size: clamp(20px,3.2vw,40px); color: var(--text);
+      margin-bottom: 18px; line-height: 1.35;
+    }
+    .divider {
+      width: 56px; height: 3px; margin: 22px auto;
+      background: linear-gradient(90deg, var(--cyan), transparent);
+    }
+    .sec-desc {
+      font-size: 15px; color: var(--muted);
+      max-width: 540px; margin: 0 auto; line-height: 1.85;
+    }
+
+    /* ── ABOUT ──────────────────────────────────────── */
+    #about {
+      background: var(--bg);
+      background-image: linear-gradient(rgba(0,200,255,.02) 1px,transparent 1px),
+                        linear-gradient(90deg,rgba(0,200,255,.02) 1px,transparent 1px);
+      background-size: 40px 40px;
+    }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center; max-width: 1200px; margin: 0 auto;
+    }
+    .about-text .sec-tag { text-align: left; }
+    .about-h3 {
+      font-family: 'Press Start 2P', monospace;
+      font-size: clamp(15px,1.8vw,22px); color: var(--text);
+      line-height: 1.6; margin-bottom: 22px;
+    }
+    .about-h3 em { color: var(--cyan); font-style: normal; }
+    .about-p { color: var(--muted); line-height: 1.9; margin-bottom: 18px; font-size: 14.5px; }
+    .feat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 36px; }
+    .feat {
+      display: flex; gap: 12px; align-items: flex-start;
+    }
+    .feat-ico {
+      width: 32px; height: 32px; flex-shrink: 0;
+      background: rgba(0,200,255,.08); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center; font-size: 14px;
+    }
+    .feat strong { display: block; color: var(--text); font-size: 13px; margin-bottom: 3px; }
+    .feat span { color: var(--muted); font-size: 12px; line-height: 1.5; }
+    .about-3d { height: 400px; }
+    #about-canvas { width: 100%; height: 100%; display: block; }
+
+    /* ── TEAM ───────────────────────────────────────── */
+    #team { background: var(--bg2); }
+    .team-grid {
+      display: grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+      gap: 26px; max-width: 1200px; margin: 0 auto;
+    }
+    .team-card {
+      background: var(--bg); border: 1px solid var(--border);
+      padding: 36px 26px; text-align: center;
+      position: relative; overflow: hidden;
+      transition: border-color .35s, transform .35s, box-shadow .35s;
+    }
+    .team-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+      transform: scaleX(0); transition: transform .35s;
+    }
+    .team-card:hover { border-color: var(--border-h); box-shadow: 0 20px 55px rgba(0,200,255,.08); }
+    .team-card:hover::before { transform: scaleX(1); }
+    .avatar {
+      width: 76px; height: 76px; margin: 0 auto 18px;
+      background: linear-gradient(135deg, var(--cyan), var(--purple));
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Press Start 2P', monospace; font-size: 20px; color: var(--bg);
+      position: relative;
+    }
+    .avatar::after {
+      content: ''; position: absolute; inset: 4px; border: 1.5px solid rgba(255,255,255,.18);
+    }
+    .t-name { font-family: 'Press Start 2P', monospace; font-size: 11px; color: var(--text); margin-bottom: 7px; }
+    .t-role { font-size: 12px; color: var(--cyan); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 14px; }
+    .t-bio { font-size: 12.5px; color: var(--muted); line-height: 1.7; margin-bottom: 22px; }
+    .t-soc { display: flex; gap: 10px; justify-content: center; }
+    .t-soc a {
+      width: 34px; height: 34px; border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--muted); text-decoration: none; transition: all .25s;
+    }
+    .t-soc a:hover { border-color: var(--cyan); color: var(--cyan); background: rgba(0,200,255,.08); }
+
+    /* ── PROJECTS ───────────────────────────────────── */
+    #projects { background: var(--bg); }
+    .proj-grid {
+      display: grid; grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
+      gap: 26px; max-width: 1200px; margin: 0 auto;
+    }
+    .proj-card {
+      background: var(--bg2); border: 1px solid var(--border);
+      overflow: hidden; transition: border-color .35s, transform .35s, box-shadow .35s;
+    }
+    .proj-card:hover { border-color: var(--border-h); transform: translateY(-5px); box-shadow: 0 18px 50px rgba(0,200,255,.07); }
+    .proj-hd {
+      padding: 26px 26px 0;
+      display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 18px;
+    }
+    .proj-ico {
+      width: 52px; height: 52px; background: rgba(0,200,255,.08);
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center; font-size: 22px;
+    }
+    .badge {
+      font-size: 10px; padding: 4px 11px; letter-spacing: .1em; text-transform: uppercase;
+    }
+    .badge-a { background: rgba(0,200,255,.1); color: var(--cyan); border: 1px solid rgba(0,200,255,.28); }
+    .badge-d { background: rgba(139,92,246,.1); color: #A78BFA; border: 1px solid rgba(139,92,246,.28); }
+    .badge-s { background: rgba(251,191,36,.1); color: #FBBF24; border: 1px solid rgba(251,191,36,.28); }
+    .proj-body { padding: 0 26px 26px; }
+    .proj-title { font-family: 'Press Start 2P', monospace; font-size: 13px; color: var(--text); margin-bottom: 10px; }
+    .proj-desc { font-size: 13.5px; color: var(--muted); line-height: 1.8; margin-bottom: 20px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 22px; }
+    .tag {
+      font-size: 10px; padding: 3px 10px;
+      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.09);
+      color: var(--muted); letter-spacing: .05em;
+    }
+    .proj-link {
+      display: inline-flex; align-items: center; gap: 7px;
+      color: var(--cyan); text-decoration: none; font-size: 12px;
+      font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+      transition: gap .25s;
+    }
+    .proj-link:hover { gap: 14px; }
+
+    /* ── CONTACT / SOCIAL ───────────────────────────── */
+    #contact { background: var(--bg2); text-align: center; }
+    .soc-grid {
+      display: flex; flex-wrap: wrap; gap: 18px;
+      justify-content: center; max-width: 860px; margin: 56px auto 0;
+    }
+    .soc-card {
+      display: flex; align-items: center; gap: 14px;
+      background: var(--bg); border: 1px solid var(--border);
+      padding: 18px 26px; text-decoration: none; color: var(--text);
+      min-width: 170px; transition: border-color .25s, transform .25s, box-shadow .25s;
+    }
+    .soc-card:hover { border-color: var(--border-h); transform: translateY(-4px); box-shadow: 0 10px 28px rgba(0,200,255,.09); }
+    .soc-ico {
+      width: 42px; height: 42px; flex-shrink: 0;
+      background: rgba(0,200,255,.08); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center; font-size: 19px;
+    }
+    .soc-name { font-weight: 600; font-size: 14px; margin-bottom: 2px; }
+    .soc-handle { font-size: 11px; color: var(--muted); }
+
+    /* ── FOOTER ─────────────────────────────────────── */
+    footer {
+      background: var(--bg); border-top: 1px solid var(--border);
+      padding: 56px 60px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 26px;
+    }
+    .footer-brand { display: flex; align-items: center; gap: 12px; }
+    .footer-brand img { height: 30px; }
+    .footer-brand-text .brand-n { font-family: 'Press Start 2P', monospace; font-size: 11px; color: var(--cyan); }
+    .footer-brand-text .brand-s { font-size: 11px; color: var(--muted); margin-top: 4px; }
+    .footer-copy { font-size: 12px; color: var(--muted); }
+    .footer-links { display: flex; gap: 28px; }
+    .footer-links a { font-size: 12px; color: var(--muted); text-decoration: none; transition: color .25s; }
+    .footer-links a:hover { color: var(--cyan); }
+
+    /* ── FADE-IN ─────────────────────────────────────── */
+    .fi { opacity: 0; transform: translateY(28px); transition: opacity .75s ease, transform .75s ease; }
+    .fi.vis { opacity: 1; transform: none; }
+
+    /* ── RESPONSIVE ─────────────────────────────────── */
+    @media (max-width: 900px) {
+      nav { padding: 14px 24px; }
+      .nav-links { display: none; }
+      .sec { padding: 80px 24px; }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .about-3d { height: 300px; }
+      .stats-strip { grid-template-columns: 1fr 1fr; }
+      .stat { border-right: none; border-bottom: 1px solid var(--border); }
+      footer { padding: 40px 24px; flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Cursor -->
+<div id="cur"></div>
+<div id="cur-ring"></div>
+
+<!-- Scroll progress -->
+<div id="progress"></div>
+
+<!-- ── NAVIGATION ──────────────────────────────────────────── -->
+<nav>
+  <div class="nav-logo">
+    <img src="HEXRA%20(1).png" alt="HEXRA" />
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">Haqqımızda</a></li>
+    <li><a href="#team">Komanda</a></li>
+    <li><a href="#projects">Proyektlər</a></li>
+    <li><a href="#contact">Əlaqə</a></li>
+  </ul>
+  <button class="nav-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+    Bizimlə Əlaqə
+  </button>
+</nav>
+
+<!-- ── HERO ────────────────────────────────────────────────── -->
+<section id="hero">
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-inner">
+    <div class="hero-badge"><span></span>Gələcəyi Bu Gün İnşa Edirik</div>
+    <h1 class="hero-title" data-text="HEXRA">HEXRA</h1>
+    <p class="hero-sub">
+      <em>Startuplar üçün</em> innovativ texnologiya həlləri yaradan<br>gənc, enerjili komanda.
+    </p>
+    <div class="hero-btns">
+      <a href="#projects" class="btn-p">Proyektlərimiz</a>
+      <a href="#team" class="btn-o">Komandamız</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- ── MARQUEE ──────────────────────────────────────────────── -->
+<div class="marquee-wrap">
+  <div class="marquee-track" id="mq"></div>
+</div>
+
+<!-- ── STATS ────────────────────────────────────────────────── -->
+<div class="stats-strip">
+  <div class="stat fi"><div class="stat-n" data-target="5">0</div><div class="stat-l">Komanda Üzvü</div></div>
+  <div class="stat fi"><div class="stat-n" data-target="8">0</div><div class="stat-l">Proyekt</div></div>
+  <div class="stat fi"><div class="stat-n" data-target="3">0</div><div class="stat-l">Aktiv Startup</div></div>
+  <div class="stat fi"><div class="stat-n" data-target="2024">0</div><div class="stat-l">Quruluş İli</div></div>
+</div>
+
+<!-- ── ABOUT ────────────────────────────────────────────────── -->
+<section id="about" class="sec">
+  <div class="about-grid">
+    <div class="about-text fi">
+      <span class="sec-tag">// Haqqımızda</span>
+      <h3 class="about-h3">Gələcəyin <em>Startuplarını</em><br>Bu Gün İnşa Edirik</h3>
+      <p class="about-p">HEXRA — innovativ texnologiya həlləri yaradan gənc, enerjili komandadır. Biz startup dünyasında iz qoymaq, müasir problemlərə yaradıcı cavablar tapmaq üçün bir araya gəlmişik.</p>
+      <p class="about-p">Hər bir proyektdə ən yüksək keyfiyyəti hədəfləyir, müştərilərimizin bizneslərini növbəti səviyyəyə qaldırmağa kömək edirik.</p>
+      <div class="feat-grid">
+        <div class="feat"><div class="feat-ico">⚡</div><div><strong>Sürətli İcra</strong><span>Agile metodologiya ilə sürətli çatdırılma</span></div></div>
+        <div class="feat"><div class="feat-ico">🎯</div><div><strong>Dəqiq Hədəf</strong><span>Biznes məqsədlərinizə fokuslanmış həllər</span></div></div>
+        <div class="feat"><div class="feat-ico">🔮</div><div><strong>İnnovasiya</strong><span>Ən son texnologiyaları tətbiq edirik</span></div></div>
+        <div class="feat"><div class="feat-ico">🌍</div><div><strong>Qlobal Düşüncə</strong><span>Beynəlxalq standartlarda iş</span></div></div>
+      </div>
+    </div>
+    <div class="about-3d fi"><canvas id="about-canvas"></canvas></div>
+  </div>
+</section>
+
+<!-- ── TEAM ─────────────────────────────────────────────────── -->
+<section id="team" class="sec">
+  <div class="sec-hd fi">
+    <span class="sec-tag">// Komandamız</span>
+    <h2 class="sec-title">Güclü Bir Team</h2>
+    <div class="divider"></div>
+    <p class="sec-desc">Müxtəlif sahələrdə ekspert olan komanda üzvlərimiz HEXRA-nı irəli aparır.</p>
+  </div>
+  <div class="team-grid">
+
+    <div class="team-card fi">
+      <div class="avatar">IB</div>
+      <div class="t-name">İbrahim</div>
+      <div class="t-role">Founder &amp; CEO</div>
+      <div class="t-bio">HEXRA-nın qurucusu. Startup ekosistemi və texnologiya liderliyi üzrə güclü vizyon sahibi.</div>
+      <div class="t-soc">
+        <a href="#" title="GitHub"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.79-.26.79-.58v-2.23c-3.34.73-4.03-1.42-4.03-1.42-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23.96-.27 1.98-.4 3-.4 1.02 0 2.05.13 3.01.4 2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.19.69.8.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg></a>
+        <a href="#" title="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73A1.77 1.77 0 1 1 6.5 3.2a1.77 1.77 0 0 1 0 3.53zM20 19h-3v-5.6c0-3.37-4-3.11-4 0V19h-3V8h3v1.77C14.4 7.41 20 7.22 20 12.48V19z"/></svg></a>
+        <a href="#" title="X"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.67l-4.71-6.23-5.4 6.23H2.74l7.74-8.84L1.25 2.25H8.08l4.25 5.62zm-1.16 17.52h1.83L7.08 4.13H5.12z"/></svg></a>
+      </div>
+    </div>
+
+    <div class="team-card fi" style="transition-delay:.1s">
+      <div class="avatar" style="background:linear-gradient(135deg,#8B5CF6,var(--cyan))">DE</div>
+      <div class="t-name">Develop</div>
+      <div class="t-role">Lead Developer</div>
+      <div class="t-bio">Full-stack developer. React, Node.js və cloud texnologiyaları üzrə dərin biliyə sahib.</div>
+      <div class="t-soc">
+        <a href="#" title="GitHub"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.79-.26.79-.58v-2.23c-3.34.73-4.03-1.42-4.03-1.42-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23.96-.27 1.98-.4 3-.4 1.02 0 2.05.13 3.01.4 2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.19.69.8.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg></a>
+        <a href="#" title="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73A1.77 1.77 0 1 1 6.5 3.2a1.77 1.77 0 0 1 0 3.53zM20 19h-3v-5.6c0-3.37-4-3.11-4 0V19h-3V8h3v1.77C14.4 7.41 20 7.22 20 12.48V19z"/></svg></a>
+      </div>
+    </div>
+
+    <div class="team-card fi" style="transition-delay:.2s">
+      <div class="avatar" style="background:linear-gradient(135deg,#F59E0B,#EF4444)">DS</div>
+      <div class="t-name">Design</div>
+      <div class="t-role">UI/UX Designer</div>
+      <div class="t-bio">Kreativ dizayner. İstifadəçi mərkəzli interfeyslər yaratmaqda ixtisaslaşıb.</div>
+      <div class="t-soc">
+        <a href="#" title="Dribbble"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm7.97 5.54a10.2 10.2 0 0 1 2.29 6.27c-.34-.07-3.74-.76-7.17-.33-.08-.18-.15-.37-.23-.55-.22-.52-.46-1.04-.71-1.54 3.79-1.55 5.52-3.78 5.82-3.85zM12 1.8c2.62 0 5.02.95 6.87 2.5-.26.35-1.82 2.42-5.46 3.8A45.32 45.32 0 0 0 8.7 1.36 10.24 10.24 0 0 1 12 1.8zM6.8 2.2c.14.2 1.88 2.55 5.22 8.02-3.3.87-6.21.86-6.5.86H1.8A10.22 10.22 0 0 1 6.8 2.2zM1.79 12l.01-.36h3.85c.37 0 3.71-.04 7.28-1.09.2.4.4.8.57 1.21l-.66.18C8.7 13.35 5.96 17.13 5.6 17.67A10.21 10.21 0 0 1 1.8 12zm10.21 10.2a10.2 10.2 0 0 1-6.21-2.1c.28-.53 2.6-4.06 6.52-5.33.02-.01.04-.01.06-.02a44.37 44.37 0 0 1 1.77 6.82 10.3 10.3 0 0 1-2.14.63zm3.92-.9a46.07 46.07 0 0 0-1.65-6.49c3.24-.52 6.09.33 6.45.44a10.24 10.24 0 0 1-4.8 6.06z"/></svg></a>
+        <a href="#" title="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73A1.77 1.77 0 1 1 6.5 3.2a1.77 1.77 0 0 1 0 3.53zM20 19h-3v-5.6c0-3.37-4-3.11-4 0V19h-3V8h3v1.77C14.4 7.41 20 7.22 20 12.48V19z"/></svg></a>
+      </div>
+    </div>
+
+    <div class="team-card fi" style="transition-delay:.3s">
+      <div class="avatar" style="background:linear-gradient(135deg,#10B981,#00C8FF)">ML</div>
+      <div class="t-name">ML Eng</div>
+      <div class="t-role">AI / ML Engineer</div>
+      <div class="t-bio">Süni intellekt və machine learning həlləri üzrə mütəxəssis. Python, TensorFlow, PyTorch.</div>
+      <div class="t-soc">
+        <a href="#" title="GitHub"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.79-.26.79-.58v-2.23c-3.34.73-4.03-1.42-4.03-1.42-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23.96-.27 1.98-.4 3-.4 1.02 0 2.05.13 3.01.4 2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.19.69.8.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg></a>
+        <a href="#" title="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73A1.77 1.77 0 1 1 6.5 3.2a1.77 1.77 0 0 1 0 3.53zM20 19h-3v-5.6c0-3.37-4-3.11-4 0V19h-3V8h3v1.77C14.4 7.41 20 7.22 20 12.48V19z"/></svg></a>
+      </div>
+    </div>
+
+    <div class="team-card fi" style="transition-delay:.4s">
+      <div class="avatar" style="background:linear-gradient(135deg,#EC4899,var(--purple))">MK</div>
+      <div class="t-name">Marketing</div>
+      <div class="t-role">Growth &amp; Marketing</div>
+      <div class="t-bio">Digital marketing və growth hacking üzrə ekspert. Brendin böyüməsini idarə edir.</div>
+      <div class="t-soc">
+        <a href="#" title="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07-3.2 0-3.58-.01-4.85-.07-3.26-.15-4.77-1.7-4.92-4.92C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85C2.38 3.86 3.9 2.31 7.15 2.23 8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 2.7.27.27 2.7.07 7.05.01 8.33 0 8.74 0 12c0 3.26.01 3.67.07 4.95.2 4.36 2.62 6.78 6.98 6.98C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95 0-3.26-.01-3.67-.07-4.95C23.73 2.7 21.3.27 16.95.07 15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg></a>
+        <a href="#" title="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73A1.77 1.77 0 1 1 6.5 3.2a1.77 1.77 0 0 1 0 3.53zM20 19h-3v-5.6c0-3.37-4-3.11-4 0V19h-3V8h3v1.77C14.4 7.41 20 7.22 20 12.48V19z"/></svg></a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── PROJECTS ───────────────────────────────────────────── -->
+<section id="projects" class="sec">
+  <div class="sec-hd fi">
+    <span class="sec-tag">// Proyektlər</span>
+    <h2 class="sec-title">Nə İnşa Edirik?</h2>
+    <div class="divider"></div>
+    <p class="sec-desc">Startup ekosisteminə dəyər qatan innovativ proyektlər.</p>
+  </div>
+  <div class="proj-grid">
+
+    <div class="proj-card fi">
+      <div class="proj-hd">
+        <div class="proj-ico">🚀</div>
+        <span class="badge badge-a">Aktiv</span>
+      </div>
+      <div class="proj-body">
+        <div class="proj-title">HEXRA Platform</div>
+        <div class="proj-desc">Startuplar üçün all-in-one idarəetmə platforması. Komanda əməkdaşlığı, layihə izləmə və analitika.</div>
+        <div class="tags">
+          <span class="tag">React</span><span class="tag">Node.js</span><span class="tag">PostgreSQL</span><span class="tag">AWS</span>
+        </div>
+        <a href="#" class="proj-link">Daha Ətraflı <span>→</span></a>
+      </div>
+    </div>
+
+    <div class="proj-card fi" style="transition-delay:.1s">
+      <div class="proj-hd">
+        <div class="proj-ico">🤖</div>
+        <span class="badge badge-d">İnkişafda</span>
+      </div>
+      <div class="proj-body">
+        <div class="proj-title">AI Assistant</div>
+        <div class="proj-desc">Azərbaycan dilini dəstəkləyən yerli süni intellekt köməkçisi. Biznes proseslərini avtomatlaşdırır.</div>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">NLP</span><span class="tag">Azure</span>
+        </div>
+        <a href="#" class="proj-link">Daha Ətraflı <span>→</span></a>
+      </div>
+    </div>
+
+    <div class="proj-card fi" style="transition-delay:.2s">
+      <div class="proj-hd">
+        <div class="proj-ico">📱</div>
+        <span class="badge badge-a">Aktiv</span>
+      </div>
+      <div class="proj-body">
+        <div class="proj-title">StartApp</div>
+        <div class="proj-desc">Gənc sahibkarlar üçün mobil tətbiq. Biznes planı, investor axtarışı və mentorluq platforması.</div>
+        <div class="tags">
+          <span class="tag">React Native</span><span class="tag">Firebase</span><span class="tag">TypeScript</span>
+        </div>
+        <a href="#" class="proj-link">Daha Ətraflı <span>→</span></a>
+      </div>
+    </div>
+
+    <div class="proj-card fi" style="transition-delay:.3s">
+      <div class="proj-hd">
+        <div class="proj-ico">🌐</div>
+        <span class="badge badge-s">Tezliklə</span>
+      </div>
+      <div class="proj-body">
+        <div class="proj-title">HexChain</div>
+        <div class="proj-desc">Azərbaycan bazarı üçün blockchain əsaslı supply chain idarəetmə sistemi.</div>
+        <div class="tags">
+          <span class="tag">Solidity</span><span class="tag">Web3.js</span><span class="tag">Ethereum</span>
+        </div>
+        <a href="#" class="proj-link">Daha Ətraflı <span>→</span></a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── CONTACT / SOCIAL ──────────────────────────────────── -->
+<section id="contact" class="sec">
+  <div class="sec-hd fi">
+    <span class="sec-tag">// Sosial Media</span>
+    <h2 class="sec-title">Bizimlə Əlaqə</h2>
+    <div class="divider"></div>
+    <p class="sec-desc">Sosial media kanallarımız vasitəsilə bizimlə əlaqə qurun.</p>
+  </div>
+  <div class="soc-grid">
+
+    <a href="https://github.com/hexra" class="soc-card fi" target="_blank" rel="noopener">
+      <div class="soc-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.79-.26.79-.58v-2.23c-3.34.73-4.03-1.42-4.03-1.42-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23.96-.27 1.98-.4 3-.4 1.02 0 2.05.13 3.01.4 2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.19.69.8.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg></div>
+      <div><div class="soc-name">GitHub</div><div class="soc-handle">@hexra</div></div>
+    </a>
+
+    <a href="https://instagram.com/hexra" class="soc-card fi" target="_blank" rel="noopener" style="transition-delay:.05s">
+      <div class="soc-ico" style="color:#E1306C"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07-3.2 0-3.58-.01-4.85-.07-3.26-.15-4.77-1.7-4.92-4.92C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85C2.38 3.86 3.9 2.31 7.15 2.23 8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 2.7.27.27 2.7.07 7.05.01 8.33 0 8.74 0 12c0 3.26.01 3.67.07 4.95.2 4.36 2.62 6.78 6.98 6.98C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95 0-3.26-.01-3.67-.07-4.95C23.73 2.7 21.3.27 16.95.07 15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg></div>
+      <div><div class="soc-name">Instagram</div><div class="soc-handle">@hexra</div></div>
+    </a>
+
+    <a href="https://linkedin.com/company/hexra" class="soc-card fi" target="_blank" rel="noopener" style="transition-delay:.1s">
+      <div class="soc-ico" style="color:#0077B5"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73A1.77 1.77 0 1 1 6.5 3.2a1.77 1.77 0 0 1 0 3.53zM20 19h-3v-5.6c0-3.37-4-3.11-4 0V19h-3V8h3v1.77C14.4 7.41 20 7.22 20 12.48V19z"/></svg></div>
+      <div><div class="soc-name">LinkedIn</div><div class="soc-handle">HEXRA</div></div>
+    </a>
+
+    <a href="https://twitter.com/hexra" class="soc-card fi" target="_blank" rel="noopener" style="transition-delay:.15s">
+      <div class="soc-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.67l-4.71-6.23-5.4 6.23H2.74l7.74-8.84L1.25 2.25H8.08l4.25 5.62zm-1.16 17.52h1.83L7.08 4.13H5.12z"/></svg></div>
+      <div><div class="soc-name">X / Twitter</div><div class="soc-handle">@hexra</div></div>
+    </a>
+
+    <a href="https://t.me/hexra" class="soc-card fi" target="_blank" rel="noopener" style="transition-delay:.2s">
+      <div class="soc-ico" style="color:#229ED9"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></div>
+      <div><div class="soc-name">Telegram</div><div class="soc-handle">@hexra</div></div>
+    </a>
+
+    <a href="mailto:info@hexra.dev" class="soc-card fi" style="transition-delay:.25s">
+      <div class="soc-ico" style="color:var(--cyan)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+      <div><div class="soc-name">Email</div><div class="soc-handle">info@hexra.dev</div></div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────────── -->
+<footer>
+  <div class="footer-brand">
+    <img src="HEXRA%20(1).png" alt="HEXRA" />
+    <div class="footer-brand-text">
+      <div class="brand-n">HEXRA</div>
+      <div class="brand-s">Building Tomorrow's Startups</div>
+    </div>
+  </div>
+  <div class="footer-copy">© 2024 HEXRA. Bütün hüquqlar qorunur.</div>
+  <div class="footer-links">
+    <a href="#about">Haqqımızda</a>
+    <a href="#team">Komanda</a>
+    <a href="#projects">Proyektlər</a>
+    <a href="#contact">Əlaqə</a>
+  </div>
+</footer>
+
+<script>
+/* ════════════════════════════════════════════════
+   CUSTOM CURSOR
+════════════════════════════════════════════════ */
+const cur = document.getElementById('cur');
+const curRing = document.getElementById('cur-ring');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cur.style.left = mx + 'px'; cur.style.top = my + 'px';
+});
+(function tickRing() {
+  rx += (mx - rx) * 0.13; ry += (my - ry) * 0.13;
+  curRing.style.left = rx + 'px'; curRing.style.top = ry + 'px';
+  requestAnimationFrame(tickRing);
+})();
+document.querySelectorAll('a,button,.team-card,.proj-card,.soc-card').forEach(el => {
+  el.addEventListener('mouseenter', () => { cur.style.transform='translate(-50%,-50%) scale(2.5)'; curRing.style.width=curRing.style.height='58px'; curRing.style.opacity='.2'; });
+  el.addEventListener('mouseleave', () => { cur.style.transform='translate(-50%,-50%) scale(1)';  curRing.style.width=curRing.style.height='38px'; curRing.style.opacity='.45'; });
+});
+
+/* ════════════════════════════════════════════════
+   SCROLL PROGRESS
+════════════════════════════════════════════════ */
+const prog = document.getElementById('progress');
+window.addEventListener('scroll', () => {
+  prog.style.width = (window.scrollY / (document.documentElement.scrollHeight - innerHeight) * 100) + '%';
+});
+
+/* ════════════════════════════════════════════════
+   MARQUEE
+════════════════════════════════════════════════ */
+const mqItems = ['WEB DEVELOPMENT','MOBILE APPS','UI/UX DESIGN','AI SOLUTIONS',
+  'STARTUP CONSULTING','CLOUD INFRA','BLOCKCHAIN','3D EXPERIENCES'];
+const mq = document.getElementById('mq');
+[...mqItems, ...mqItems].forEach(t => {
+  const s = document.createElement('span');
+  s.className = 'marquee-item';
+  s.innerHTML = `<span class="marquee-dot"></span>${t}`;
+  mq.appendChild(s);
+});
+
+/* ════════════════════════════════════════════════
+   HERO — Canvas 2D: starfield + wireframe shapes + planet
+════════════════════════════════════════════════ */
+(function heroScene() {
+  const canvas = document.getElementById('hero-canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H;
+  function resize() { W = canvas.width = innerWidth; H = canvas.height = innerHeight; }
+  resize();
+  window.addEventListener('resize', resize);
+
+  /* stars — count scales with device pixel budget */
+  const STAR_COUNT = Math.min(1000, Math.round(innerWidth * innerHeight / 1200));
+  const MAX_FLOATING_SHAPES = 22;
+  const ORBIT_DOTS_COUNT = 80;
+  const stars = Array.from({length: STAR_COUNT}, () => ({
+    x: Math.random(), y: Math.random(),
+    r: Math.random() * 1.2 + 0.2,
+    c: Math.random() > .6 ? '#00C8FF' : '#ffffff',
+    a: Math.random() * .7 + .15,
+    spd: Math.random() * .00015 + .00005
+  }));
+
+  /* floating wireframe shapes (projected pseudo-3D) */
+  function mkPoly(sides, cx, cy, r) {
+    const pts = [];
+    for (let i = 0; i < sides; i++) {
+      const a = (i / sides) * Math.PI * 2;
+      pts.push([cx + Math.cos(a)*r, cy + Math.sin(a)*r]);
+    }
+    return pts;
+  }
+  const palette = ['rgba(0,200,255,', 'rgba(139,92,246,', 'rgba(0,255,170,'];
+  const shapes = Array.from({length: MAX_FLOATING_SHAPES}, () => ({
+    sides: [3,4,5,6][Math.floor(Math.random()*4)],
+    x: Math.random(), y: Math.random(),
+    r: Math.random() * 28 + 10,
+    rot: Math.random() * Math.PI * 2,
+    rotSpd: (Math.random() - .5) * .012,
+    vx: (Math.random() - .5) * .0006,
+    vy: (Math.random() - .5) * .0006,
+    col: palette[Math.floor(Math.random()*3)],
+    a: Math.random() * .4 + .1
+  }));
+
+  /* centre planet */
+  let mouseNX = 0, mouseNY = 0;
+  document.addEventListener('mousemove', e => {
+    mouseNX = (e.clientX / innerWidth  - .5);
+    mouseNY = (e.clientY / innerHeight - .5);
+  });
+
+  let camX = 0, camY = 0, t = 0;
+
+  function drawPoly(pts, col, alpha) {
+    ctx.beginPath();
+    pts.forEach(([x,y], i) => i === 0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y));
+    ctx.closePath();
+    ctx.strokeStyle = col + alpha + ')';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+  }
+
+  function tick() {
+    requestAnimationFrame(tick);
+    t += 0.005;
+    camX += (mouseNX * 20 - camX) * .03;
+    camY += (mouseNY * 14 - camY) * .03;
+    ctx.clearRect(0, 0, W, H);
+
+    /* stars */
+    stars.forEach(s => {
+      s.x += s.spd;
+      if (s.x > 1) s.x -= 1;
+      const sx = (s.x * W + camX * .3 + W) % W;
+      const sy = (s.y * H + camY * .2 + H) % H;
+      ctx.beginPath();
+      ctx.arc(sx, sy, s.r, 0, Math.PI * 2);
+      ctx.fillStyle = s.c;
+      ctx.globalAlpha = s.a;
+      ctx.fill();
+    });
+    ctx.globalAlpha = 1;
+
+    /* floating shapes */
+    shapes.forEach(s => {
+      s.rot += s.rotSpd;
+      s.x += s.vx; s.y += s.vy;
+      if (s.x < 0 || s.x > 1) s.vx *= -1;
+      if (s.y < 0 || s.y > 1) s.vy *= -1;
+      const cx = s.x * W + camX * .15;
+      const cy = s.y * H + camY * .1;
+      const pts = Array.from({length: s.sides}, (_, i) => {
+        const a = s.rot + (i / s.sides) * Math.PI * 2;
+        return [cx + Math.cos(a)*s.r, cy + Math.sin(a)*s.r];
+      });
+      drawPoly(pts, s.col, s.a);
+    });
+
+    /* centre planet + rings */
+    const cx = W/2 + camX * .5, cy = H/2 + camY * .3;
+    const pr = Math.min(W,H) * 0.055;
+
+    /* glow */
+    const grd = ctx.createRadialGradient(cx, cy, 0, cx, cy, pr * 2.5);
+    grd.addColorStop(0, 'rgba(0,200,255,0.12)');
+    grd.addColorStop(1, 'rgba(0,200,255,0)');
+    ctx.beginPath(); ctx.arc(cx, cy, pr * 2.5, 0, Math.PI*2);
+    ctx.fillStyle = grd; ctx.fill();
+
+    /* sphere */
+    const sGrd = ctx.createRadialGradient(cx - pr*.3, cy - pr*.3, pr*.05, cx, cy, pr);
+    sGrd.addColorStop(0, '#003366');
+    sGrd.addColorStop(0.5, '#001133');
+    sGrd.addColorStop(1, '#000a1f');
+    ctx.beginPath(); ctx.arc(cx, cy, pr, 0, Math.PI*2);
+    ctx.fillStyle = sGrd; ctx.fill();
+    ctx.strokeStyle = 'rgba(0,200,255,0.35)'; ctx.lineWidth = 1.5; ctx.stroke();
+
+    /* latitudes */
+    ctx.strokeStyle = 'rgba(0,200,255,0.12)'; ctx.lineWidth = 1;
+    for (let lat = 1; lat < 4; lat++) {
+      const ry = (lat / 4) * pr * 2 - pr;
+      const rx2 = Math.sqrt(Math.max(0, pr*pr - ry*ry));
+      ctx.beginPath(); ctx.ellipse(cx, cy + ry, rx2, rx2 * .22, 0, 0, Math.PI*2); ctx.stroke();
+    }
+
+    /* Saturn rings */
+    ctx.save();
+    ctx.translate(cx, cy);
+    [[pr*1.5, pr*1.7, .28], [pr*1.8, pr*2.0, .18], [pr*2.1, pr*2.25, .10]].forEach(([r1, r2, a]) => {
+      ctx.strokeStyle = `rgba(0,200,255,${a})`;
+      ctx.lineWidth = r2 - r1;
+      ctx.beginPath();
+      ctx.ellipse(0, 0, r2, r2*.3, t*.4, 0, Math.PI*2);
+      ctx.stroke();
+    });
+    ctx.restore();
+
+    /* orbit dots */
+    for (let i = 0; i < ORBIT_DOTS_COUNT; i++) {
+      const a = (i / ORBIT_DOTS_COUNT) * Math.PI * 2 + t * .4;
+      const or = pr * (2.6 + (i % 3) * .3);
+      const ox = cx + Math.cos(a) * or;
+      const oy = cy + Math.sin(a) * or * .3;
+      ctx.beginPath();
+      ctx.arc(ox, oy, 1.2, 0, Math.PI*2);
+      ctx.fillStyle = 'rgba(0,200,255,0.6)';
+      ctx.fill();
+    }
+  }
+  tick();
+})();
+
+/* ════════════════════════════════════════════════
+   ABOUT — Canvas 2D: rotating 3D planet with rings
+════════════════════════════════════════════════ */
+(function aboutScene() {
+  const ORBIT_TRAIL_DOTS = 60;
+  const canvas = document.getElementById('about-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let W, H;
+  function resize() {
+    W = canvas.width  = canvas.parentElement.offsetWidth;
+    H = canvas.height = canvas.parentElement.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  let t = 0;
+  function tick() {
+    requestAnimationFrame(tick);
+    t += 0.012;
+    ctx.clearRect(0, 0, W, H);
+    const cx = W/2, cy = H/2;
+    const pr = Math.min(W, H) * 0.28;
+
+    /* glow halo */
+    const g = ctx.createRadialGradient(cx, cy, pr*.5, cx, cy, pr*2.2);
+    g.addColorStop(0, 'rgba(0,150,255,0.18)');
+    g.addColorStop(0.4, 'rgba(0,200,255,0.06)');
+    g.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.beginPath(); ctx.arc(cx, cy, pr*2.2, 0, Math.PI*2);
+    ctx.fillStyle = g; ctx.fill();
+
+    /* planet body */
+    const sGrd = ctx.createRadialGradient(cx - pr*.35, cy - pr*.35, pr*.1, cx, cy, pr);
+    sGrd.addColorStop(0, '#004488');
+    sGrd.addColorStop(0.4, '#001844');
+    sGrd.addColorStop(1, '#000a22');
+    ctx.beginPath(); ctx.arc(cx, cy, pr, 0, Math.PI*2);
+    ctx.fillStyle = sGrd; ctx.fill();
+    ctx.strokeStyle = 'rgba(0,200,255,0.5)'; ctx.lineWidth = 2; ctx.stroke();
+
+    /* swirling surface bands */
+    ctx.save(); ctx.beginPath(); ctx.arc(cx, cy, pr, 0, Math.PI*2); ctx.clip();
+    for (let b = 0; b < 5; b++) {
+      const yb = cy - pr + (b / 4) * pr * 2;
+      const rb = Math.sqrt(Math.max(0, pr*pr - (yb - cy)*(yb - cy)));
+      ctx.strokeStyle = `rgba(0,200,255,${0.07 + b*.02})`;
+      ctx.lineWidth = pr * .08;
+      ctx.beginPath();
+      ctx.ellipse(cx + Math.sin(t + b) * rb * .2, yb, rb, rb * .12, 0, 0, Math.PI*2);
+      ctx.stroke();
+    }
+    ctx.restore();
+
+    /* wireframe latitude lines */
+    ctx.strokeStyle = 'rgba(0,200,255,0.15)'; ctx.lineWidth = 1;
+    for (let i = 1; i < 5; i++) {
+      const dy = (i / 5) * pr * 2 - pr;
+      const rx = Math.sqrt(Math.max(0, pr*pr - dy*dy));
+      ctx.beginPath(); ctx.ellipse(cx, cy + dy, rx, rx * .2, 0, 0, Math.PI*2); ctx.stroke();
+    }
+
+    /* Saturn rings (behind + in front) */
+    const ringConfigs = [
+      [pr*1.45, pr*1.6,  .30, pr*.28],
+      [pr*1.68, pr*1.85, .20, pr*.32],
+      [pr*1.95, pr*2.12, .12, pr*.36],
+    ];
+    /* back half */
+    ringConfigs.forEach(([r1, r2, a, ry2]) => {
+      ctx.strokeStyle = `rgba(0,200,255,${a*.5})`;
+      ctx.lineWidth = r2 - r1;
+      ctx.beginPath(); ctx.ellipse(cx, cy, (r1+r2)/2, ry2, 0, Math.PI, Math.PI*2); ctx.stroke();
+    });
+    /* planet on top */
+    ctx.beginPath(); ctx.arc(cx, cy, pr, 0, Math.PI*2);
+    const sGrd2 = ctx.createRadialGradient(cx - pr*.35, cy - pr*.35, pr*.1, cx, cy, pr);
+    sGrd2.addColorStop(0, 'rgba(0,68,136,0.9)');
+    sGrd2.addColorStop(1, 'rgba(0,10,34,0.9)');
+    ctx.fillStyle = sGrd2; ctx.fill();
+    ctx.strokeStyle = 'rgba(0,200,255,0.5)'; ctx.lineWidth = 2; ctx.stroke();
+    /* front half */
+    ringConfigs.forEach(([r1, r2, a, ry2]) => {
+      ctx.strokeStyle = `rgba(0,200,255,${a})`;
+      ctx.lineWidth = r2 - r1;
+      ctx.beginPath(); ctx.ellipse(cx, cy, (r1+r2)/2, ry2, 0, 0, Math.PI); ctx.stroke();
+    });
+
+    /* orbiting dot trail */
+    for (let i = 0; i < ORBIT_TRAIL_DOTS; i++) {
+      const ang = (i / ORBIT_TRAIL_DOTS) * Math.PI * 2 + t;
+      const oR = pr * 2.4;
+      const ox = cx + Math.cos(ang) * oR;
+      const oy = cy + Math.sin(ang) * oR * .38;
+      ctx.beginPath(); ctx.arc(ox, oy, 1.6, 0, Math.PI*2);
+      ctx.fillStyle = `rgba(0,200,255,${0.15 + Math.cos(ang - t) * .35})`;
+      ctx.fill();
+    }
+
+    /* highlight spot */
+    const hl = ctx.createRadialGradient(cx - pr*.4, cy - pr*.35, 0, cx - pr*.4, cy - pr*.35, pr*.6);
+    hl.addColorStop(0, 'rgba(0,200,255,0.18)'); hl.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.beginPath(); ctx.arc(cx, cy, pr, 0, Math.PI*2);
+    ctx.fillStyle = hl; ctx.fill();
+  }
+  tick();
+})();
+
+/* ════════════════════════════════════════════════
+   INTERSECTION OBSERVER — fade-in + counters
+════════════════════════════════════════════════ */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+}, { threshold: .12 });
+document.querySelectorAll('.fi').forEach(el => io.observe(el));
+
+const counterIO = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target, target = +el.dataset.target, dur = 1800, start = Date.now();
+    const tick = () => {
+      const p = Math.min((Date.now()-start)/dur, 1);
+      el.textContent = Math.floor((1-Math.pow(1-p,3))*target);
+      if (p < 1) requestAnimationFrame(tick); else el.textContent = target;
+    };
+    tick(); counterIO.unobserve(el);
+  });
+}, { threshold: .5 });
+document.querySelectorAll('[data-target]').forEach(el => counterIO.observe(el));
+
+/* ════════════════════════════════════════════════
+   3D TILT on cards
+════════════════════════════════════════════════ */
+document.querySelectorAll('.team-card,.proj-card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const r = card.getBoundingClientRect();
+    const x = (e.clientX-r.left)/r.width-.5, y = (e.clientY-r.top)/r.height-.5;
+    card.style.transform = `translateY(-6px) perspective(700px) rotateY(${x*10}deg) rotateX(${-y*10}deg)`;
+  });
+  card.addEventListener('mouseleave', () => card.style.transform = '');
+});
+</script>
+>>>>>>> 423ebd421ebe8f259729a6edb8374d97bfafccbd
 </body>
 </html>
