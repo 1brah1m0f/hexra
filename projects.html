@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Projects — HEXRA</title>
+  <meta name="description" content="Explore HEXRA's active portfolio — AI workflow automation, adaptive learning, and social trend analytics." />
+  <link rel="icon" href="hexra.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ── Ambient layers ── -->
+<canvas id="stars-canvas" aria-hidden="true"></canvas>
+<div class="noise" aria-hidden="true"></div>
+<div class="shapes" aria-hidden="true">
+  <div class="shape shape--sq  s1"></div>
+  <div class="shape shape--sq  s2"></div>
+  <div class="shape shape--tri s3"></div>
+  <div class="shape shape--hex s4"></div>
+  <div class="shape shape--dia s5"></div>
+  <div class="shape shape--pent s6"></div>
+  <div class="shape shape--tri s7"></div>
+  <div class="shape shape--sq  s8"></div>
+</div>
+
+<!-- ══════════════════════════════════════
+     HEADER
+     ══════════════════════════════════════ -->
+<header class="header">
+  <div class="container header__inner">
+    <a href="index.html" class="brand">HEXRA</a>
+    <button class="burger" aria-expanded="false" aria-label="Open navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav" id="nav">
+      <a href="index.html"    class="nav__link">Home</a>
+      <a href="about.html"    class="nav__link">About</a>
+      <a href="team.html"     class="nav__link">Team</a>
+      <a href="projects.html" class="nav__link nav__link--active">Projects</a>
+      <a href="contact.html"  class="nav__link nav__link--cta">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════
+     PAGE HERO
+     ══════════════════════════════════════ -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero__tag reveal"><span class="dot"></span> Portfolio</div>
+    <h1 class="page-hero__title reveal">What We're <em>Building</em></h1>
+    <p class="page-hero__desc reveal">
+      Three products. Three market gaps. Each built with lean methodology, AI augmentation,
+      and an obsessive focus on solving real user problems.
+    </p>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- ══════════════════════════════════════
+     PROJECTS
+     ══════════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="projects-grid reveal-stagger">
+
+      <!-- Hexra Flow -->
+      <div class="card project-card reveal" data-tilt data-tilt-max="4" data-tilt-perspective="1200">
+        <span class="project-card__badge">MVP</span>
+        <h3 class="project-card__title">⚡ Hexra Flow</h3>
+        <p class="project-card__desc">
+          AI-powered workflow automation platform that eliminates repetitive manual tasks. Connect your tools,
+          define triggers, and let intelligent pipelines handle the rest — saving teams hours every day.
+        </p>
+        <ul class="project-card__list">
+          <li>Natural language pipeline builder</li>
+          <li>Multi-tool integrations (Slack, Notion, Gmail, Sheets)</li>
+          <li>Smart triggers with conditional branching</li>
+          <li>Analytics dashboard for pipeline performance</li>
+          <li>API-first architecture for extensibility</li>
+        </ul>
+      </div>
+
+      <!-- Orbit Learn -->
+      <div class="card project-card reveal" data-tilt data-tilt-max="4" data-tilt-perspective="1200">
+        <span class="project-card__badge project-card__badge--beta">Beta</span>
+        <h3 class="project-card__title">🎓 Orbit Learn</h3>
+        <p class="project-card__desc">
+          Adaptive micro-learning platform designed for busy professionals. Lessons dynamically adjust
+          difficulty based on individual performance, delivering maximum knowledge in 5-minute sessions.
+        </p>
+        <ul class="project-card__list">
+          <li>AI-curated personalized learning paths</li>
+          <li>5-minute micro-lessons with spaced repetition</li>
+          <li>Real-time skill gap analysis</li>
+          <li>Gamified progress tracking &amp; streaks</li>
+          <li>Enterprise team dashboards</li>
+        </ul>
+      </div>
+
+      <!-- Pulse Insight -->
+      <div class="card project-card reveal" data-tilt data-tilt-max="4" data-tilt-perspective="1200">
+        <span class="project-card__badge project-card__badge--val">Validation</span>
+        <h3 class="project-card__title">📊 Pulse Insight</h3>
+        <p class="project-card__desc">
+          Real-time social trend analytics tool that surfaces emerging patterns through sentiment analysis.
+          Designed for marketers, researchers, and founders who need to know what's next before everyone else.
+        </p>
+        <ul class="project-card__list">
+          <li>Multi-platform social listening</li>
+          <li>NLP-driven sentiment scoring</li>
+          <li>Trend prediction with confidence intervals</li>
+          <li>Custom alert pipelines</li>
+          <li>Visual reports &amp; export tools</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- ══════════════════════════════════════
+     TECH & TOOLS
+     ══════════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="section__header reveal">
+      <div class="section__tag"><span class="dot"></span> Stack</div>
+      <h2 class="section__title">Tools &amp; <em>Technologies</em></h2>
+      <p class="section__sub">Our products are built with modern, battle-tested tools that scale.</p>
+    </div>
+
+    <div class="tools-grid reveal-stagger">
+
+      <div class="card tool-card reveal">
+        <div class="tool-card__icon">🧠</div>
+        <h4 class="tool-card__title">AI / NLP</h4>
+        <p class="tool-card__desc">OpenAI, LangChain, Hugging Face — powering intelligent pipelines and content analysis.</p>
+      </div>
+
+      <div class="card tool-card reveal">
+        <div class="tool-card__icon">⚛️</div>
+        <h4 class="tool-card__title">Frontend</h4>
+        <p class="tool-card__desc">React, Next.js, TypeScript — fast, accessible interfaces with server-side rendering.</p>
+      </div>
+
+      <div class="card tool-card reveal">
+        <div class="tool-card__icon">🔧</div>
+        <h4 class="tool-card__title">Backend</h4>
+        <p class="tool-card__desc">Node.js, Python, FastAPI — microservices built for speed and horizontal scaling.</p>
+      </div>
+
+      <div class="card tool-card reveal">
+        <div class="tool-card__icon">☁️</div>
+        <h4 class="tool-card__title">Infrastructure</h4>
+        <p class="tool-card__desc">Vercel, AWS, Supabase, Docker — cloud-native deploy with CI/CD and edge caching.</p>
+      </div>
+
+      <div class="card tool-card reveal">
+        <div class="tool-card__icon">📊</div>
+        <h4 class="tool-card__title">Analytics</h4>
+        <p class="tool-card__desc">PostHog, Mixpanel — event tracking, funnels, and user behavior insights from day one.</p>
+      </div>
+
+      <div class="card tool-card reveal">
+        <div class="tool-card__icon">🔐</div>
+        <h4 class="tool-card__title">Security</h4>
+        <p class="tool-card__desc">OAuth 2.0, JWT, rate limiting — security baked in from architecture, not bolted on after.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     FOOTER
+     ══════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <span>© 2025 HEXRA · Baku, Azerbaijan</span>
+    <div class="footer__links">
+      <a href="mailto:contact@hexra.dev">contact@hexra.dev</a>
+      <a href="https://instagram.com/hexra.az" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://linkedin.com/company/hexra" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/tilt.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
