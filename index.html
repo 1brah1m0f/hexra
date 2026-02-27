@@ -1,0 +1,199 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HEXRA — Build Fast, Think Bold</title>
+  <meta name="description" content="HEXRA is a next-gen startup studio that rapidly builds, tests, and ships AI-powered products from Baku, Azerbaijan." />
+  <link rel="icon" href="hexra.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ── Ambient layers ── -->
+<canvas id="stars-canvas" aria-hidden="true"></canvas>
+<div class="noise" aria-hidden="true"></div>
+<div class="shapes" aria-hidden="true">
+  <div class="shape shape--sq  s1"></div>
+  <div class="shape shape--sq  s2"></div>
+  <div class="shape shape--tri s3"></div>
+  <div class="shape shape--hex s4"></div>
+  <div class="shape shape--dia s5"></div>
+  <div class="shape shape--pent s6"></div>
+  <div class="shape shape--tri s7"></div>
+  <div class="shape shape--sq  s8"></div>
+</div>
+
+<!-- ══════════════════════════════════════
+     HEADER
+     ══════════════════════════════════════ -->
+<header class="header">
+  <div class="container header__inner">
+    <a href="index.html" class="brand">HEXRA</a>
+    <button class="burger" aria-expanded="false" aria-label="Open navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav" id="nav">
+      <a href="index.html"    class="nav__link nav__link--active">Home</a>
+      <a href="about.html"    class="nav__link">About</a>
+      <a href="team.html"     class="nav__link">Team</a>
+      <a href="projects.html" class="nav__link">Projects</a>
+      <a href="contact.html"  class="nav__link nav__link--cta">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════
+     HOME HERO
+     ══════════════════════════════════════ -->
+<section class="home-hero">
+  <div class="home-hero__glow" aria-hidden="true"></div>
+
+  <div class="home-hero__tag reveal">
+    <span class="dot"></span> Next-Gen Startup Studio
+  </div>
+
+  <h1 class="home-hero__title reveal">HEXRA</h1>
+
+  <p class="home-hero__sub reveal">
+    We <strong>build fast</strong>, think bold, and ship AI-powered products
+    that solve real problems — from <strong>concept to launch in weeks</strong>, not years.
+  </p>
+
+  <div class="home-hero__actions reveal">
+    <a href="projects.html" class="btn btn--primary btn--lg">Explore Projects</a>
+    <a href="about.html" class="btn btn--outline btn--lg">Our Story</a>
+  </div>
+
+  <div class="home-stats reveal-stagger">
+    <div class="home-stat reveal">
+      <span class="home-stat__num">&lt;72h</span>
+      <span class="home-stat__label">Rapid Prototype</span>
+    </div>
+    <div class="home-stat reveal">
+      <span class="home-stat__num">3</span>
+      <span class="home-stat__label">Active Projects</span>
+    </div>
+    <div class="home-stat reveal">
+      <span class="home-stat__num">∞</span>
+      <span class="home-stat__label">Ambition</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     MARQUEE
+     ══════════════════════════════════════ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span>AI Automation</span>
+    <span>•</span>
+    <span>Rapid Prototyping</span>
+    <span>•</span>
+    <span>Lean Build</span>
+    <span>•</span>
+    <span>Data-Driven</span>
+    <span>•</span>
+    <span>User-Centric</span>
+    <span>•</span>
+    <span>Full-Stack</span>
+    <span>•</span>
+    <span>Ship Weekly</span>
+    <span>•</span>
+    <!-- duplicate for seamless -->
+    <span>AI Automation</span>
+    <span>•</span>
+    <span>Rapid Prototyping</span>
+    <span>•</span>
+    <span>Lean Build</span>
+    <span>•</span>
+    <span>Data-Driven</span>
+    <span>•</span>
+    <span>User-Centric</span>
+    <span>•</span>
+    <span>Full-Stack</span>
+    <span>•</span>
+    <span>Ship Weekly</span>
+    <span>•</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PREVIEW SECTIONS
+     ══════════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="section__header reveal">
+      <div class="section__tag"><span class="dot"></span> What We Do</div>
+      <h2 class="section__title">One Studio. <em>Three Frontiers.</em></h2>
+      <p class="section__sub">Each project targets a different market gap with lean, AI-augmented speed.</p>
+    </div>
+
+    <div class="preview-grid reveal-stagger">
+
+      <div class="card preview-card reveal" data-tilt data-tilt-max="6" data-tilt-perspective="1000" data-tilt-scale="1.01">
+        <div class="preview-card__icon">⚡</div>
+        <h3 class="preview-card__title">Hexra Flow</h3>
+        <p class="preview-card__desc">AI workflow automation that replaces manual busywork with intelligent pipelines — saving hours every day.</p>
+        <a href="projects.html" class="preview-card__link">View project</a>
+      </div>
+
+      <div class="card preview-card reveal" data-tilt data-tilt-max="6" data-tilt-perspective="1000" data-tilt-scale="1.01">
+        <div class="preview-card__icon">🎓</div>
+        <h3 class="preview-card__title">Orbit Learn</h3>
+        <p class="preview-card__desc">Micro-learning platform that adapts to each student, delivering knowledge in 5-minute sessions.</p>
+        <a href="projects.html" class="preview-card__link">View project</a>
+      </div>
+
+      <div class="card preview-card reveal" data-tilt data-tilt-max="6" data-tilt-perspective="1000" data-tilt-scale="1.01">
+        <div class="preview-card__icon">📊</div>
+        <h3 class="preview-card__title">Pulse Insight</h3>
+        <p class="preview-card__desc">Real-time social trend analytics that surfaces tomorrow's patterns today through sentiment analysis.</p>
+        <a href="projects.html" class="preview-card__link">View project</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- ══════════════════════════════════════
+     CTA BAND
+     ══════════════════════════════════════ -->
+<section class="section">
+  <div class="container" style="text-align:center;">
+    <div class="section__header reveal" style="margin-bottom:32px;">
+      <div class="section__tag" style="justify-content:center;"><span class="dot"></span> Ready?</div>
+      <h2 class="section__title">Let's <em>Build Together</em></h2>
+      <p class="section__sub" style="margin-inline:auto;">Whether you're interested in our projects, want to join the team, or just want to say hi — we'd love to hear from you.</p>
+    </div>
+    <div class="home-hero__actions reveal">
+      <a href="contact.html" class="btn btn--primary btn--lg">Get in Touch</a>
+      <a href="team.html" class="btn btn--outline btn--lg">Meet the Team</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     FOOTER
+     ══════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <span>© 2025 HEXRA · Baku, Azerbaijan</span>
+    <div class="footer__links">
+      <a href="mailto:contact@hexra.dev">contact@hexra.dev</a>
+      <a href="https://instagram.com/hexra.az" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://linkedin.com/company/hexra" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/tilt.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
+

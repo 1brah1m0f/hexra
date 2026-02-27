@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About — HEXRA</title>
+  <meta name="description" content="Learn about HEXRA's mission, values, and approach to building AI-powered products at startup speed." />
+  <link rel="icon" href="hexra.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ── Ambient layers ── -->
+<canvas id="stars-canvas" aria-hidden="true"></canvas>
+<div class="noise" aria-hidden="true"></div>
+<div class="shapes" aria-hidden="true">
+  <div class="shape shape--sq  s1"></div>
+  <div class="shape shape--sq  s2"></div>
+  <div class="shape shape--tri s3"></div>
+  <div class="shape shape--hex s4"></div>
+  <div class="shape shape--dia s5"></div>
+  <div class="shape shape--pent s6"></div>
+  <div class="shape shape--tri s7"></div>
+  <div class="shape shape--sq  s8"></div>
+</div>
+
+<!-- ══════════════════════════════════════
+     HEADER
+     ══════════════════════════════════════ -->
+<header class="header">
+  <div class="container header__inner">
+    <a href="index.html" class="brand">HEXRA</a>
+    <button class="burger" aria-expanded="false" aria-label="Open navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav" id="nav">
+      <a href="index.html"    class="nav__link">Home</a>
+      <a href="about.html"    class="nav__link nav__link--active">About</a>
+      <a href="team.html"     class="nav__link">Team</a>
+      <a href="projects.html" class="nav__link">Projects</a>
+      <a href="contact.html"  class="nav__link nav__link--cta">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════
+     PAGE HERO
+     ══════════════════════════════════════ -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero__tag reveal"><span class="dot"></span> Our Story</div>
+    <h1 class="page-hero__title reveal">Built on <em>Speed, Ownership &amp; Engineering Quality</em></h1>
+    <p class="page-hero__desc reveal">
+      HEXRA is a next-generation startup studio based in Baku, Azerbaijan. We rapidly ideate, build, and ship
+      AI-powered products that solve real problems — blending engineering discipline with creative ambition.
+    </p>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- ══════════════════════════════════════
+     STORY BLOCK
+     ══════════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="story-block reveal">
+      <p>
+        <strong>HEXRA started with a simple question:</strong> What if a small, focused team could out-build companies
+        ten times its size? We believed that by combining lean methodology, AI-augmented workflows, and relentless
+        iteration, we could compress the startup timeline from months to weeks.
+      </p>
+      <p>
+        We don't chase perfection — we chase <strong>learning velocity</strong>. Every product we build is an experiment.
+        Every experiment teaches us something. And every lesson accelerates the next build. Our philosophy is simple:
+        ship early, measure everything, and let data decide what survives.
+      </p>
+      <p>
+        From our base in <strong>Baku, Azerbaijan</strong>, we're proving that world-class technology products can come
+        from anywhere — as long as the team is sharp, the vision is clear, and the execution is relentless.
+      </p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- ══════════════════════════════════════
+     CORE VALUES
+     ══════════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="section__header reveal">
+      <div class="section__tag"><span class="dot"></span> Values</div>
+      <h2 class="section__title">What Drives <em>Everything</em> We Do</h2>
+    </div>
+
+    <div class="values-grid reveal-stagger">
+
+      <div class="card value-card reveal" data-tilt data-tilt-max="6" data-tilt-perspective="1200">
+        <div class="value-card__icon">⚡</div>
+        <h3 class="value-card__title">Speed over Perfection</h3>
+        <p class="value-card__desc">Ship fast, learn faster. We prototype in under 72 hours and iterate based on real feedback — not assumptions.</p>
+      </div>
+
+      <div class="card value-card reveal" data-tilt data-tilt-max="6" data-tilt-perspective="1200">
+        <div class="value-card__icon">🔬</div>
+        <h3 class="value-card__title">Data-First Decisions</h3>
+        <p class="value-card__desc">Every feature, pivot, and sunset is backed by metrics. Gut feelings start conversations — numbers end them.</p>
+      </div>
+
+      <div class="card value-card reveal" data-tilt data-tilt-max="6" data-tilt-perspective="1200">
+        <div class="value-card__icon">🏗️</div>
+        <h3 class="value-card__title">Engineering Quality</h3>
+        <p class="value-card__desc">Fast doesn't mean messy. Clean architecture, tested code, and scalable design are non-negotiable foundations.</p>
+      </div>
+
+      <div class="card value-card reveal" data-tilt data-tilt-max="6" data-tilt-perspective="1200">
+        <div class="value-card__icon">🤝</div>
+        <h3 class="value-card__title">Full Ownership</h3>
+        <p class="value-card__desc">Every team member owns their domain end-to-end. No hand-offs, no blame — just accountability and impact.</p>
+      </div>
+
+      <div class="card value-card reveal" data-tilt data-tilt-max="6" data-tilt-perspective="1200">
+        <div class="value-card__icon">🌐</div>
+        <h3 class="value-card__title">Think Global</h3>
+        <p class="value-card__desc">Built in Baku, designed for the world. Every product is conceived with a global user base and scalability in mind.</p>
+      </div>
+
+      <div class="card value-card reveal" data-tilt data-tilt-max="6" data-tilt-perspective="1200">
+        <div class="value-card__icon">🔄</div>
+        <h3 class="value-card__title">Lean Build Cycle</h3>
+        <p class="value-card__desc">Idea → Prototype → Feedback → Iterate. Our cycle is tight, efficient, and designed to kill bad ideas before they cost time.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- ══════════════════════════════════════
+     KPIs
+     ══════════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="section__header reveal">
+      <div class="section__tag"><span class="dot"></span> By the Numbers</div>
+      <h2 class="section__title">Our <em>Operating Metrics</em></h2>
+    </div>
+
+    <div class="kpi-row reveal-stagger">
+      <div class="card kpi-card reveal">
+        <span class="kpi-card__val">&lt;72h</span>
+        <span class="kpi-card__label">From idea to first working prototype</span>
+      </div>
+      <div class="card kpi-card reveal">
+        <span class="kpi-card__val">2 Weeks</span>
+        <span class="kpi-card__label">Feedback-ready iteration cycle</span>
+      </div>
+      <div class="card kpi-card reveal">
+        <span class="kpi-card__val">100%</span>
+        <span class="kpi-card__label">Data-informed product decisions</span>
+      </div>
+      <div class="card kpi-card reveal">
+        <span class="kpi-card__val">Lean</span>
+        <span class="kpi-card__label">Kill fast, build what works</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     FOOTER
+     ══════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <span>© 2025 HEXRA · Baku, Azerbaijan</span>
+    <div class="footer__links">
+      <a href="mailto:contact@hexra.dev">contact@hexra.dev</a>
+      <a href="https://instagram.com/hexra.az" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://linkedin.com/company/hexra" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/tilt.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
