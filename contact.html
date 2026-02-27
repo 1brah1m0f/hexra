@@ -1,28 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Contact — HEXRA</title>
-  <meta name="description" content="Get in touch with HEXRA. We're based in Baku, Azerbaijan and always open to partnerships, talent, and new ideas." />
+  <meta name="description" content="Get in touch with HEXRA — partnership, hiring, and investment enquiries welcome." />
   <link rel="icon" href="hexra.png" type="image/png" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-<!-- ── Ambient layers ── -->
-<canvas id="stars-canvas" aria-hidden="true"></canvas>
+<!-- ── Ambient ── -->
+<div class="blob blob--1" aria-hidden="true"></div>
+<div class="blob blob--2" aria-hidden="true"></div>
+<div class="blob blob--3" aria-hidden="true"></div>
 <div class="noise" aria-hidden="true"></div>
-<div class="shapes" aria-hidden="true">
-  <div class="shape shape--sq  s1"></div>
-  <div class="shape shape--sq  s2"></div>
-  <div class="shape shape--tri s3"></div>
-  <div class="shape shape--hex s4"></div>
-  <div class="shape shape--dia s5"></div>
-  <div class="shape shape--pent s6"></div>
-  <div class="shape shape--tri s7"></div>
-  <div class="shape shape--sq  s8"></div>
-</div>
 
 <!-- ══════════════════════════════════════
      HEADER
@@ -30,16 +22,21 @@
 <header class="header">
   <div class="container header__inner">
     <a href="index.html" class="brand">HEXRA</a>
-    <button class="burger" aria-expanded="false" aria-label="Open navigation">
-      <span></span><span></span><span></span>
-    </button>
+
     <nav class="nav" id="nav">
       <a href="index.html"    class="nav__link">Home</a>
       <a href="about.html"    class="nav__link">About</a>
       <a href="team.html"     class="nav__link">Team</a>
       <a href="projects.html" class="nav__link">Projects</a>
-      <a href="contact.html"  class="nav__link nav__link--cta nav__link--active">Contact</a>
+      <a href="contact.html"  class="nav__link nav__link--active nav__link--cta">Contact</a>
     </nav>
+
+    <div style="display:flex;align-items:center;gap:8px;">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button>
+      <button class="burger" aria-expanded="false" aria-label="Open navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -48,11 +45,11 @@
      ══════════════════════════════════════ -->
 <section class="page-hero">
   <div class="container">
-    <div class="page-hero__tag reveal"><span class="dot"></span> Say Hello</div>
+    <div class="badge badge--iris page-hero__tag reveal"><span class="dot"></span> Say Hello</div>
     <h1 class="page-hero__title reveal">Let's <em>Connect</em></h1>
     <p class="page-hero__desc reveal">
-      Whether you want to collaborate, invest, join the team, or just say hi —
-      we'd love to hear from you. Reach out through any of these channels.
+      Have a question, proposal, or just want to say hi?
+      We'd love to hear from you. Drop us a message and we'll respond within 24 hours.
     </p>
   </div>
 </section>
@@ -60,58 +57,57 @@
 <hr class="divider" />
 
 <!-- ══════════════════════════════════════
-     CONTACT GRID
+     CONTACT CARDS
      ══════════════════════════════════════ -->
 <section class="section">
   <div class="container">
-    <div class="contact-grid">
+    <div class="contact-grid reveal-stagger">
 
-      <!-- Left — Direct Info -->
-      <div class="contact-info reveal">
-
-        <div class="contact-info__block">
-          <div class="contact-info__label">Email</div>
-          <div class="contact-info__value">
-            <a href="mailto:contact@hexra.dev">contact@hexra.dev</a>
-          </div>
-        </div>
-
-        <div class="contact-info__block">
-          <div class="contact-info__label">Location</div>
-          <div class="contact-info__value">Baku, Azerbaijan 🇦🇿</div>
-        </div>
-
-        <div class="contact-info__block">
-          <div class="contact-info__label">Response Time</div>
-          <div class="contact-info__value">Usually within 24 hours</div>
-        </div>
-
-        <div class="contact-info__block">
-          <div class="contact-info__label">Social</div>
-          <div class="social-grid">
-            <a href="https://instagram.com/hexra.az" target="_blank" rel="noopener" class="social-btn">
-              <span class="social-btn__icon">📸</span> Instagram
-            </a>
-            <a href="https://linkedin.com/company/hexra" target="_blank" rel="noopener" class="social-btn">
-              <span class="social-btn__icon">💼</span> LinkedIn
-            </a>
-          </div>
-        </div>
-
+      <div class="card contact-card reveal" data-tilt data-tilt-max="5" data-tilt-perspective="1200">
+        <div class="contact-card__icon">✉️</div>
+        <h3 class="contact-card__title">Email Us</h3>
+        <a href="mailto:contact@hexra.dev" class="contact-card__link">contact@hexra.dev</a>
       </div>
 
-      <!-- Right — CTA Card -->
-      <div class="card contact-cta reveal" data-tilt data-tilt-max="4" data-tilt-perspective="1400">
-        <h3 class="contact-cta__title">Ready to build something?</h3>
-        <p class="contact-cta__desc">
-          Drop us an email and tell us about your idea. Whether it's a partnership, investment,
-          or just a conversation about the future of tech — we're all ears.
-        </p>
-        <a href="mailto:contact@hexra.dev" class="btn btn--primary btn--lg">
-          Send an Email →
-        </a>
+      <div class="card contact-card reveal" data-tilt data-tilt-max="5" data-tilt-perspective="1200">
+        <div class="contact-card__icon">📍</div>
+        <h3 class="contact-card__title">Location</h3>
+        <p class="contact-card__text">Baku, Azerbaijan</p>
       </div>
 
+      <div class="card contact-card reveal" data-tilt data-tilt-max="5" data-tilt-perspective="1200">
+        <div class="contact-card__icon">⏱️</div>
+        <h3 class="contact-card__title">Response Time</h3>
+        <p class="contact-card__text">Within 24 hours</p>
+      </div>
+
+      <div class="card contact-card reveal" data-tilt data-tilt-max="5" data-tilt-perspective="1200">
+        <div class="contact-card__icon">📸</div>
+        <h3 class="contact-card__title">Instagram</h3>
+        <a href="https://instagram.com/hexra.az" target="_blank" rel="noopener" class="contact-card__link">@hexra.az</a>
+      </div>
+
+      <div class="card contact-card reveal" data-tilt data-tilt-max="5" data-tilt-perspective="1200">
+        <div class="contact-card__icon">💼</div>
+        <h3 class="contact-card__title">LinkedIn</h3>
+        <a href="https://linkedin.com/company/hexra" target="_blank" rel="noopener" class="contact-card__link">/company/hexra</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- ══════════════════════════════════════
+     CTA
+     ══════════════════════════════════════ -->
+<section class="section">
+  <div class="container" style="text-align:center;">
+    <div class="card cta-card reveal" data-tilt data-tilt-max="3" data-tilt-perspective="1400">
+      <h2 class="cta-card__title">Ready to Build <em>Together?</em></h2>
+      <p class="cta-card__desc">Whether you're a developer, investor, or future user — we want to hear from you.</p>
+      <a href="mailto:contact@hexra.dev" class="btn btn--primary">Send an Email</a>
     </div>
   </div>
 </section>
@@ -123,26 +119,35 @@
      ══════════════════════════════════════ -->
 <section class="section">
   <div class="container">
-    <div class="section__header reveal" style="text-align:center;">
-      <div class="section__tag" style="justify-content:center;"><span class="dot"></span> FAQ</div>
-      <h2 class="section__title">Common <em>Questions</em></h2>
+    <div class="section__header reveal">
+      <div class="section__tag"><span class="dot"></span> FAQ</div>
+      <h2 class="section__title">Frequently <em>Asked</em></h2>
     </div>
 
-    <div class="values-grid reveal-stagger" style="max-width:760px;margin:0 auto;grid-template-columns:1fr;">
+    <div class="faq-grid reveal-stagger">
 
-      <div class="card value-card reveal">
-        <h3 class="value-card__title">Are you open to partnerships?</h3>
-        <p class="value-card__desc">Absolutely. We're actively looking for partners who share our vision for lean, AI-powered products. If you have an idea or a market — let's talk.</p>
+      <div class="card faq-card reveal">
+        <h4 class="faq-card__q">Are you open to partnerships?</h4>
+        <p class="faq-card__a">
+          Absolutely. We're always exploring partnerships with companies, academic institutions,
+          and creative studios who share our vision for a tech-forward future.
+        </p>
       </div>
 
-      <div class="card value-card reveal">
-        <h3 class="value-card__title">Are you hiring?</h3>
-        <p class="value-card__desc">We're always interested in exceptional people. If you're a builder at heart — developer, designer, marketer — email us with your story and what excites you about HEXRA.</p>
+      <div class="card faq-card reveal">
+        <h4 class="faq-card__q">Are you hiring?</h4>
+        <p class="faq-card__a">
+          Not actively at this stage, but we're always open to meeting talented people.
+          Send your portfolio to contact@hexra.dev and we'll keep you in mind.
+        </p>
       </div>
 
-      <div class="card value-card reveal">
-        <h3 class="value-card__title">Can I invest in HEXRA?</h3>
-        <p class="value-card__desc">We're open to conversations with angel investors and early-stage funds who believe in our model. Drop us an email and we'll set up a call.</p>
+      <div class="card faq-card reveal">
+        <h4 class="faq-card__q">Can I invest in HEXRA?</h4>
+        <p class="faq-card__a">
+          We're currently pre-seed, bootstrapping our first products. If you're an angel investor
+          or VC, feel free to reach out — we're open to conversations.
+        </p>
       </div>
 
     </div>
@@ -154,7 +159,7 @@
      ══════════════════════════════════════ -->
 <footer class="footer">
   <div class="container footer__inner">
-    <span>© 2025 HEXRA · Baku, Azerbaijan</span>
+    <span>&copy; 2025 HEXRA · Baku, Azerbaijan</span>
     <div class="footer__links">
       <a href="mailto:contact@hexra.dev">contact@hexra.dev</a>
       <a href="https://instagram.com/hexra.az" target="_blank" rel="noopener">Instagram</a>
