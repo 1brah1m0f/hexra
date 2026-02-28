@@ -682,7 +682,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
    HOME — PREVIEW CARDS
    ════════════════════════════════════════════════════════ */
 .preview-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6);
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-8);
 }
 .preview-card { padding: var(--space-10) var(--space-8); text-align: center; }
 
@@ -739,7 +739,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
    ABOUT PAGE
    ════════════════════════════════════════════════════════ */
 .values-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6);
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-8);
   margin-bottom: var(--space-16);
 }
 .value-card { padding: var(--space-8); }
@@ -810,7 +810,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
    TEAM PAGE
    ════════════════════════════════════════════════════════ */
 .team-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6);
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-8);
 }
 .team-card { padding: var(--space-10) var(--space-8); text-align: center; }
 
@@ -1098,6 +1098,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 @media (max-width: 1060px) {
   .preview-grid     { grid-template-columns: 1fr; }
   .values-grid      { grid-template-columns: 1fr 1fr; }
+  .team-grid        { grid-template-columns: 1fr; gap: var(--space-6); }
   .kpi-row          { grid-template-columns: 1fr 1fr; }
   .projects-grid    { grid-template-columns: 1fr; }
   .tools-grid       { grid-template-columns: 1fr 1fr; }
